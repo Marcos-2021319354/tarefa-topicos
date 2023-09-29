@@ -16,6 +16,24 @@ $resultado = mysqli_query($conexao,$sql);
     <title>Xango Skins</title>
 </head>
 <body>
+<nav class="navbar bg-primary" data-bs-theme="dark">
+<div class="container-fluid">
+    <a class="navbar-brand" href="index.php">Xango Skins</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="salvar.php">Cadastrar skin</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<br>
+<div class="container">
     <?php while ($dados = mysqli_fetch_assoc($resultado)) {  ?>
 <div class="card" style="width: 18rem;">
   <img src="<?php echo $dados["imagem_skin"]?>" class="card-img-top" alt="<?php echo $dados["nome_skin"]?>">
@@ -24,9 +42,10 @@ $resultado = mysqli_query($conexao,$sql);
     <p class="card-text"><strong><?php echo $dados["preco_skin"]?></strong>
     <?php echo $dados["float_skin"]?></p>
     <a href="editar.php?id_skin=<?php echo $dados['id_skin'] ?>" class="btn btn-primary">Editar</a>
-    <a href="deletar.php?id_skin=<?php echo $dados['id_skin'] ?>" class="btn btn-danger">Excluir</a>
+    <a href="deletar.php" class="btn btn-danger">Excluir</a>
   </div>
 </div>
 <?php } ?>
+</div>
 </body>
 </html>
