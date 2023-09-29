@@ -1,7 +1,7 @@
 <?php
 include_once("conecta.php");
 //Puxando o conecta
-$sql = "SELECT * FROM skin";
+$sql = "SELECT * FROM noticias";
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -33,23 +33,25 @@ $sql = "SELECT * FROM skin";
 <br>
 
 <div class="container">
-<a class="btn btn-success" href="salvar.php" role="button">+ Cadastrar skin</a>
+<a class="btn btn-success" href="salvar_noticia.php" role="button">+ Cadastrar notícia</a>
 </div>
 
 <br>
 
 <div class="container">
     <?php foreach ($conn->query($sql) as $dados) {  ?>
-<div class="card" style="width: 18rem;">
-  <img src="<?php echo $dados["imagem_skin"]?>" class="card-img-top" alt="<?php echo $dados["nome_skin"]?>">
+
+<div class="card">
+  <div class="card-header">
+   <?php echo $dados["titulo_noticia"]?>
+  </div>
   <div class="card-body">
-    <h5 class="card-title"><?php echo $dados["nome_skin"]?></h5>
-    <p class="card-text"><strong><?php echo $dados["preco_skin"]?></strong>
-    <?php echo $dados["float_skin"]?></p>
-    <a href="editar.php?id_skin=<?php echo $dados['id_skin'] ?>" class="btn btn-primary">Editar</a>
-    <a href="deletar.php?id_skin=<?php echo $dados['id_skin'] ?>" class="btn btn-danger">Excluir</a>
+    <p class="card-text"><?php echo $dados["texto_noticia"]?></p>
+    <a href="#" class="btn btn-primary">Editar</a>
+    <a href="#" class="btn btn-danger">Excluir</a>
   </div>
 </div>
+
 <?php } ?>
 </div>
 </body>
