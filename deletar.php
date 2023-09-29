@@ -7,7 +7,7 @@ $id_skin = $_GET["id_skin"];
 
 $sql = "DELETE FROM skin WHERE id_skin=".$id_skin;
     
-if(mysqli_query($conexao,$sql)) {
+if($conn -> query($sql)) {
 
 header('location: index.php');
 
@@ -16,6 +16,5 @@ $mensagem = "Deletado";
 } else{
      $mensagem = "Erro ao deletar";
     }
-mysqli_close($conexao);
 
 ?>

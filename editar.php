@@ -5,10 +5,6 @@ require_once 'conecta.php';
 $id_skin = $_GET['id_skin'];
 
 $sql = "SELECT * FROM `skin` WHERE `id_skin` = $id_skin";
-    $res = mysqli_query($conexao,$sql);
-    $funciona = mysqli_fetch_assoc($res);
-    $resultado = mysqli_query($conexao, $sql);
-    $dados = mysqli_fetch_assoc($resultado);
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +17,7 @@ $sql = "SELECT * FROM `skin` WHERE `id_skin` = $id_skin";
     <title>Xango Skins</title>
 </head>
 <body>
+<?php foreach ($conn->query($sql) as $dados) { ?>
     <form action="editar_skin.php?id_skin= <?php echo $id_skin ?> "method="post" enctype="multipart/form-data">
     <label>Nome da Skin:
         <input type="text" id="nome_skin" name="nome_skin" value="<?php echo $dados['nome_skin']; ?>"/>
@@ -31,6 +28,7 @@ $sql = "SELECT * FROM `skin` WHERE `id_skin` = $id_skin";
     </label>
     <br>
     <label>Imagem da Skin:
+        <img src="<?php echo $dados['imagem_skin']?>" alt="">
         <input type="file" id="imagem_skin" name="imagem_skin" value=""/>
     </label>
     <br>
@@ -42,6 +40,7 @@ $sql = "SELECT * FROM `skin` WHERE `id_skin` = $id_skin";
     <input type="submit" value="Editar">
 
     </form>
+    <?php } ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

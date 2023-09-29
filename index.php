@@ -2,8 +2,6 @@
 include_once("conecta.php");
 //Puxando o conecta
 $sql = "SELECT * FROM skin";
-$resultado = mysqli_query($conexao,$sql);
-//Puxando todas as skins
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -34,7 +32,7 @@ $resultado = mysqli_query($conexao,$sql);
 
 <br>
 <div class="container">
-    <?php while ($dados = mysqli_fetch_assoc($resultado)) {  ?>
+    <?php foreach ($conn->query($sql) as $dados) {  ?>
 <div class="card" style="width: 18rem;">
   <img src="<?php echo $dados["imagem_skin"]?>" class="card-img-top" alt="<?php echo $dados["nome_skin"]?>">
   <div class="card-body">
@@ -42,7 +40,7 @@ $resultado = mysqli_query($conexao,$sql);
     <p class="card-text"><strong><?php echo $dados["preco_skin"]?></strong>
     <?php echo $dados["float_skin"]?></p>
     <a href="editar.php?id_skin=<?php echo $dados['id_skin'] ?>" class="btn btn-primary">Editar</a>
-    <a href="deletar.php" class="btn btn-danger">Excluir</a>
+    <a href="deletar.php?id_skin=<?php echo $dados['id_skin'] ?>" class="btn btn-danger">Excluir</a>
   </div>
 </div>
 <?php } ?>
