@@ -23,8 +23,8 @@ $resultado = mysqli_query($conexao,$sql);
     <h5 class="card-title"><?php echo $dados["nome_skin"]?></h5>
     <p class="card-text"><strong><?php echo $dados["preco_skin"]?></strong>
     <?php echo $dados["float_skin"]?></p>
-    <a href="editar.php" class="btn btn-primary">Editar</a>
-    <a href="deletar.php" class="btn btn-danger">Excluir</a>
+    <a href="editar.php?id_skin=<?php echo $dados['id_skin'] ?>" class="btn btn-primary">Editar</a>
+    <a href="deletar.php?id_skin=<?php echo $dados['id_skin'] ?>" class="btn btn-danger">Excluir</a>
   </div>
 </div>
 <?php } ?>
