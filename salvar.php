@@ -25,7 +25,7 @@
         $stmt->bindParam(":imagem_skin", $imagem_skin, PDO::PARAM_STR);
         $stmt->bindParam(":float_skin", $float_skin, PDO::PARAM_STR);
         $stmt->execute();
-
+        header('location: index.php');
     }
     ?>
 
