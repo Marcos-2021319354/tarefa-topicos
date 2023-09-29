@@ -10,10 +10,12 @@
     if (isset($_POST["nome_skin"])) {
     
 
-        var_dump($_FILES);
+        
         $nome_skin = $_POST["nome_skin"];
         $preco_skin = $_POST["preco_skin"];
-        //$imagem_skin = $_POST["imagem_skin"];
+        $imagem_skin = $_FILES['imagem_skin']['name'];
+        $imagem_skin_tmp = $_FILES['imagem_skin']['tmp_name'];
+        
         $float_skin = $_POST["float_skin"];
 
         $sql = "INSERT INTO skin(nome_skin,preco_skin,imagem_skin,float_skin) VALUES(:nome_skin, :preco_skin,:imagem_skin, :float_skin)";

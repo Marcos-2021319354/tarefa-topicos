@@ -5,8 +5,11 @@ include_once 'conecta.php';
 $id_skin = $_GET['id_skin'];
 $nome_skin = $_POST['nome_skin'];
 $preco_skin = $_POST['preco_skin'];
-$imagem_skin = $_POST['imagem_skin'];
+
 $float_skin = $_POST['float_skin'];
+
+$imagem_skin = $_FILES['imagem_skin']['name'];
+$imagem_skin_tmp = $_FILES['imagem_skin']['tmp_name'];
 
 
 
