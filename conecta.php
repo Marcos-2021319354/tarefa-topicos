@@ -1,12 +1,10 @@
 <?php
-$bdServidor = "localhost";
-$bdUsuario = "root";
-$bdSenha = ""; // senha vazia
-$bdBanco = "crud";
-$conexao = mysqli_connect($bdServidor, $bdUsuario, $bdSenha,
-$bdBanco);
-if (mysqli_connect_errno()) {
-echo "Problemas para conectar no banco. Erro: ";
-echo mysqli_connect_error();
-die();
-} 
+$username = "root";
+$password ="";
+try {
+  $conn = new PDO('mysql:host=localhost;dbname=crud', $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e) {
+    echo 'ERROR: ' . $e->getMessage();
+}
+?>
