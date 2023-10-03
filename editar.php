@@ -17,27 +17,44 @@ $sql = "SELECT * FROM `skin` WHERE `id_skin` = $id_skin";
     <title>Xango Skins</title>
 </head>
 <body>
+<nav class="navbar bg-primary" data-bs-theme="dark">
+<div class="container-fluid">
+    <a class="navbar-brand" href="index.php">Xango Skins</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="noticias.php">Notícias</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
 <?php foreach ($conn->query($sql) as $dados) { ?>
-    <form action="editar_skin.php?id_skin= <?php echo $id_skin ?> "method="post" enctype="multipart/form-data">
+    <form action="editar_skin.php?id_skin= <?php echo $id_skin ?> "method="post" enctype="multipart/form-data"  class="container" style="width: 700px;">
     <label>Nome da Skin:
-        <input type="text" id="nome_skin" name="nome_skin" value="<?php echo $dados['nome_skin']; ?>"/>
+        <input type="text" id="nome_skin"  class="form-control" name="nome_skin" value="<?php echo $dados['nome_skin']; ?>"/>
     </label>
     <br>
     <label>Preço:
-        <input type="text" id="preco_skin" name="preco_skin" value="<?php echo $dados['preco_skin']; ?>"/>
+        <input type="text" id="preco_skin"  class="form-control" name="preco_skin" value="<?php echo $dados['preco_skin']; ?>"/>
     </label>
     <br>
     <label>Imagem da Skin:
         <img src="<?php echo $dados['imagem_skin']?>" alt="">
-        <input type="file" id="imagem_skin" name="imagem_skin" value=""/>
+        <input type="file" id="imagem_skin"  class="form-control" name="imagem_skin" value=""/>
     </label>
     <br>
     <label>Float da Skin:
-        <input type="text" id="float_skin" name="float_skin" value="<?php echo $dados['float_skin']; ?>"/>
+        <input type="text" class="form-control" id="float_skin" name="float_skin" value="<?php echo $dados['float_skin']; ?>"/>
     </label>
     <br>
 
-    <input type="submit" value="Editar">
+    <input type="submit" class="btn btn-primary" value="Editar">
 
     </form>
     <?php } ?>

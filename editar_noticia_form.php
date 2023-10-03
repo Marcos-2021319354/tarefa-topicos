@@ -17,18 +17,35 @@ $sql = "SELECT * FROM `noticias` WHERE `id_noticia` = $id_noticia";
     <title>Xango Skins</title>
 </head>
 <body>
+<nav class="navbar bg-primary" data-bs-theme="dark">
+<div class="container-fluid">
+    <a class="navbar-brand" href="index.php">Xango Skins</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="noticias.php">Notícias</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
 <?php foreach ($conn->query($sql) as $dados) { ?>
-    <form action="editar_noticia.php?id_noticia= <?php echo $id_noticia ?> "method="post" enctype="multipart/form-data">
+    <form action="editar_noticia.php?id_noticia= <?php echo $id_noticia ?> "method="post" enctype="multipart/form-data" class="container" style="width: 700px;">
     <label>Título da noticia:
-        <input type="text" id="titulo_noticia" name="titulo_noticia" value="<?php echo $dados['titulo_noticia']; ?>"/>
+        <input type="text" id="titulo_noticia" class="form-control" name="titulo_noticia" value="<?php echo $dados['titulo_noticia']; ?>"/>
     </label>
     <br>
     <label>Texto da noticia:
-        <input type="text" id="texto_noticia" name="texto_noticia" value="<?php echo $dados['texto_noticia']; ?>"/>
+        <input type="text" id="texto_noticia" class="form-control" name="texto_noticia" value="<?php echo $dados['texto_noticia']; ?>"/>
     </label>
     <br>
 
-    <input type="submit" value="Editar">
+    <input type="submit" class="btn btn-primary" value="Editar">
 
     </form>
     <?php } ?>
