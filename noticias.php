@@ -47,10 +47,11 @@ $sql = "SELECT * FROM noticias";
   </div>
   <div class="card-body">
     <p class="card-text"><?php echo $dados["texto_noticia"]?></p>
-    <a href="#" class="btn btn-primary">Editar</a>
-    <a href="#" class="btn btn-danger">Excluir</a>
+    <a href="editar_noticia_form.php?id_noticia=<?php echo $dados['id_noticia'] ?>" class="btn btn-primary">Editar</a>
+    <a href="deletar_noticia.php?id_noticia=<?php echo $dados['id_noticia'] ?>" class="btn btn-danger">Excluir</a>
   </div>
 </div>
+<br>
 
 <?php } ?>
 </div>
