@@ -31,20 +31,17 @@ $sql = "SELECT * FROM skin";
 </nav>
 
 <br>
-
 <div class="container">
 <a class="btn btn-success" href="salvar.php" role="button">+ Cadastrar skin</a>
-</div>
 
 <br>
-
-<div class="container">
+<br>
     <?php foreach ($conn->query($sql) as $dados) {  ?>
-<div class="card" style="width: 18rem;">
-  <img src="<?php echo $dados["imagem_skin"]?>" class="card-img-top" alt="<?php echo $dados["nome_skin"]?>">
+<div class="card d-inline-block" style="width: 18rem; margin-left:">
+  <img src="<?php echo $dados["imagem_skin"]?>" class="card-img-top" alt="<?php echo $dados["nome_skin"]?>" style="max-height: 14em; height:500px;">
   <div class="card-body">
     <h5 class="card-title"><?php echo $dados["nome_skin"]?></h5>
-    <p class="card-text"><strong><?php echo $dados["preco_skin"]?></strong>
+    <p class="card-text"><strong>R$<?php echo $dados["preco_skin"]?></strong>
     <?php echo $dados["float_skin"]?></p>
     <a href="editar.php?id_skin=<?php echo $dados['id_skin'] ?>" class="btn btn-primary">Editar</a>
     <a href="deletar.php?id_skin=<?php echo $dados['id_skin'] ?>" class="btn btn-danger">Excluir</a>
