@@ -44,16 +44,19 @@ $sql = "SELECT * FROM `skin` WHERE `id_skin` = $id_skin";
         <input type="text" id="preco_skin"  class="form-control" name="preco_skin" value="<?php echo $dados['preco_skin']; ?>"/>
     </label>
     <br>
+    <br>
     <label>Imagem da Skin:
         <img src="<?php echo $dados['imagem_skin']?>" alt="">
+        <br><br>
         <input type="file" id="imagem_skin"  class="form-control" name="imagem_skin" value=""/>
     </label>
     <br>
+    
     <label>Float da Skin:
         <input type="text" class="form-control" id="float_skin" name="float_skin" value="<?php echo $dados['float_skin']; ?>"/>
     </label>
     <br>
-
+<br>
     <input type="submit" class="btn btn-primary" value="Editar">
 
     </form>

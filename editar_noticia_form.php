@@ -36,14 +36,19 @@ $sql = "SELECT * FROM `noticias` WHERE `id_noticia` = $id_noticia";
 <br>
 <?php foreach ($conn->query($sql) as $dados) { ?>
     <form action="editar_noticia.php?id_noticia= <?php echo $id_noticia ?> "method="post" enctype="multipart/form-data" class="container" style="width: 700px;">
-    <label>Título da noticia:
-        <input type="text" id="titulo_noticia" class="form-control" name="titulo_noticia" value="<?php echo $dados['titulo_noticia']; ?>"/>
-    </label>
-    <br>
-    <label>Texto da noticia:
-        <input type="text" id="texto_noticia" class="form-control" name="texto_noticia" value="<?php echo $dados['texto_noticia']; ?>"/>
-    </label>
-    <br>
+
+    <div class="mb-3">
+    <label  class="form-label">Título:</label>
+    <input type="text" class="form-control"  name="titulo_noticia" aria-describedby="emailHelp" value="<?php echo $dados['titulo_noticia']; ?>" required>
+
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Texto:</label>
+
+      <label for="" class="form-label"></label>
+      <textarea class="form-control" name="texto_noticia" id="texto_noticia" rows="3"><?php echo $dados['texto_noticia']; ?></textarea>
+    </div>
+    
 
     <input type="submit" class="btn btn-primary" value="Editar">
 

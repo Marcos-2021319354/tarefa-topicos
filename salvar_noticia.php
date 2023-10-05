@@ -53,8 +53,11 @@
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Texto:</label>
-    <input type="text" class="form-control" name="texto_noticia"aria-describedby="emailHelp">
-  </div>
+
+      <label for="" class="form-label"></label>
+      <textarea class="form-control" name="texto_noticia" id="texto_noticia" rows="3"></textarea>
+    </div>
+
  
   <input type="submit" class="btn btn-success" value="Adicionar notícia">
 
