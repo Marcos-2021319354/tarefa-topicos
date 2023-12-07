@@ -1,4 +1,15 @@
 <?php
+session_start();
+
+// Verifica se o usuário está autenticado
+if (!isset($_SESSION['email'])) {
+    header('Location: index.php');
+    exit();
+}
+
+// Se o usuário estiver autenticado, exibe a página protegida
+$email = $_SESSION['email'];
+
 // Conexão com o banco de dados (substitua as credenciais conforme necessário)
 $host = 'localhost';
 $db_user = 'root';
